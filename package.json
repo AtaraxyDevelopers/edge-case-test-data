@@ -1,0 +1,32 @@
+{
+  "name": "@ataraxydevelopers/edge-case-test-data",
+  "version": "0.1.0",
+  "description": "Deterministic synthetic fixtures for Unicode, dates, missing values, and boundary cases.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "author": "Ataraxy Developers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtaraxyDevelopers/edge-case-test-data.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AtaraxyDevelopers/edge-case-test-data/issues"
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node src/cli.mjs --count 8"
+  },
+  "exports": "./src/index.mjs",
+  "bin": {
+    "edge-case-data": "src/cli.mjs"
+  },
+  "files": [
+    "src",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ]
+}

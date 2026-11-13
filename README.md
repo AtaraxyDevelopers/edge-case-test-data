@@ -9,7 +9,11 @@ An open-source project from [Ataraxy Developers](https://github.com/AtaraxyDevel
 
 ## Quick start
 
-Requires Node.js 22 or 24 and npm. Git is optional if you download the source ZIP.
+Install [Node.js](https://nodejs.org/en/download) 22 or 24 (npm is included). Check
+`node --version` and `npm --version` in your terminal. The commands below run from
+this repository's root folder, the one containing `package.json`.
+
+**With Git:**
 
 ```sh
 git clone https://github.com/AtaraxyDevelopers/edge-case-test-data.git
@@ -18,11 +22,24 @@ npm ci
 npm test
 ```
 
+**Without Git:** choose **Code → Download ZIP** on GitHub, extract the archive,
+and open a terminal in the extracted `edge-case-test-data-main` folder (release archives may
+include the version in the folder name). Run `npm ci` and `npm test` there.
+Use the **source-code ZIP**, not an npm `.tgz` package, to follow this developer walkthrough.
+The install step may need internet access; the examples run locally afterward.
+
+On Windows PowerShell, if `npm.ps1` is blocked by execution policy, use `npm.cmd`
+in place of `npm` in these commands. No execution-policy change is required.
+
 ```sh
 npm run demo
 node src/cli.mjs --count 100 --seed 42 --format ndjson
-node src/cli.mjs --count 100 --seed 42 --format json > fixtures-output.json
+node src/cli.mjs --count 100 --seed 42 --format json --out fixtures-output.json
 ```
+
+The output file is written as UTF-8 on every supported OS, preserving Urdu and
+other Unicode text. Existing files are not overwritten: choose a new name for a
+second export. Omit `--out` to print data to stdout. A missing option value is an error.
 
 ## Included cases
 
@@ -31,10 +48,14 @@ composed and decomposed Unicode, emoji, Urdu, CJK text, apostrophes, HTML-lookin
 text, spreadsheet formulas, null, absent fields, zero, unsafe integer strings,
 leap days, timezone boundaries, long strings, and embedded newlines.
 
+For programmatic use, save the following as `usage.mjs` in the repository root,
+then run `node usage.mjs`:
+
 ```js
 import { cases, generate, serialize } from './src/index.mjs';
 const records = generate({ count: 50, seed: 123 });
 const json = serialize(records, 'json');
+console.log(JSON.stringify({ cases: cases.length, records: JSON.parse(json).length }));
 ```
 
 ## Formats and reproducibility
@@ -56,6 +77,10 @@ All records are invented. This generator is for test data, not cryptographic ran
 values, production identity generation, or a complete locale validation standard.
 Invalid dates are intentionally strings. No attempt is made to infer whether a
 human name, address, or email is culturally valid.
+
+## Expected first run
+
+The demo prints eight synthetic JSON records. File generation writes the requested number of records as UTF-8; repeating `--out` with the same filename fails without changing that file.
 
 ## Contributing and support
 

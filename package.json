@@ -1,6 +1,6 @@
 {
   "name": "@ataraxydevelopers/edge-case-test-data",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Deterministic synthetic fixtures for Unicode, dates, missing values, and boundary cases.",
   "type": "module",
   "engines": {

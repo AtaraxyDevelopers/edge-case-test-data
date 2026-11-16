@@ -1,3 +1,5 @@
+<p><a href="https://ataraxydevelopers.com"><img src="docs/brand/ataraxy-developers-logo.png" alt="Ataraxy Developers — Turning Digital Visions Into Reality" width="520"></a></p>
+
 # Edge-Case Test Data
 
 [![CI](https://github.com/AtaraxyDevelopers/edge-case-test-data/actions/workflows/ci.yml/badge.svg)](https://github.com/AtaraxyDevelopers/edge-case-test-data/actions/workflows/ci.yml)
